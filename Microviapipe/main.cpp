@@ -35,7 +35,7 @@ void ProcessTime() {
     cerr << "system " << sys_tv.tv_sec <<"."<<sys_tv.tv_usec<<" sec"<<endl;
 }
 
-void EPIP(vector< vector<char *> > & argv, int n) {
+void PipConv(vector< vector<char *> > & argv, int n) {
     //conveer
     for (int i = 0; i < n - 1; i++) {
         int fd[2];
@@ -579,7 +579,7 @@ int LineExec1(deque<vector<string>> &commands) {
                         close(0);
                 dup2(open(fin.c_str(), O_RDWR|O_CREAT, 0666), 0);
                 }
-            EPIP(argv, qnt);
+            PipConv(argv, qnt);
             } else {
             int status;
             wait(&status);
